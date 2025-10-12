@@ -5,11 +5,11 @@ import './Navbar.css'
 const Navbar = () => {
     return (
         <nav>
-            {/* <ul>
+            <ul>
                 <li><Link to="/characters">Personajes</Link></li>
                 <li> <Link to="/locations">Lugares</Link></li>
                 <li> <Link to="/episodes">Episodios</Link></li>
-            </ul> */}
+            </ul>
         </nav>
     )
 }

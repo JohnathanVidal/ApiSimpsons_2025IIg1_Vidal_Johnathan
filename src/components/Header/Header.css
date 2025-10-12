@@ -27,14 +27,14 @@
 }
 
 #familia {
-    height: 130px;
+    height: 180px;
     transition: transform 0.3s ease;
 }
 
 /* Efecto al pasar el mouse */
 #logo:hover,
 #familia:hover {
-    transform: scale(1.2);
+    transform: scale(1.18);
 }
 
 /* Ajuste para que el contenido no quede oculto detrás del header */

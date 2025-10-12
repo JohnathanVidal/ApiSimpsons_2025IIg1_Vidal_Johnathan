@@ -1,9 +1,8 @@
 .footer {
-    background: rgba(77, 77, 77, 0.496);
     backdrop-filter: blur(4px);
     color: black;
     text-align: center;
-    padding: 25px 15px;
+    padding: 100px 20px;
     border-top: 2px solid #000;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
     font-family: 'Luckiest Guy', cursive;
@@ -22,20 +21,21 @@
 
 #footer-logo {
     height: 60px;
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease;
 }
 
 #footer-logo:hover {
     transform: scale(1.1);
 }
 
-.footer-info {
+.informacion {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap:  1.5px;
 }
 
-.footer-info h4 {
+.informacion h4 {
     color: #ffcc00;
     font-size: 1.3em;
     margin-bottom: 5px;
@@ -68,7 +68,7 @@
         height: 50px;
     }
 
-    .footer-info h4 {
+    .informacion h4 {
         font-size: 1.1em;
     }
 

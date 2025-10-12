@@ -1,23 +1,32 @@
-import React from 'react'
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
+import './App.css'
+import NavBar from './components/NavBar/NavBar'
 import Header from './components/Header/Header'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
 
+// Asegúrate de que las rutas de importación coincidan con tu estructura de carpetas
+// (Asumo que tienes una carpeta 'pages/Characters' con los archivos dentro)
+import CharactersPage from './pages/Characters/CharactersPage';
+import CharacterDetail from './pages/Characters/CharacterDetail'; // ✅ Importación correcta
+import LocationsPage from './pages/Locations/LocationsPage';
+import EpisodesPage from './pages/Episodes/EpisodesPage';
 
-const App = () => {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+function App() {
+
   return (
-    <>
+    <Router>
       <Header />
-      <div id='centro'>
-      <Navbar />
-      {/* Contenido principal que cambia según la ruta */}
-      <main style={{ minHeight: '80%', minWidth: '80%', background: '#ff0909ff' }}>
-        main
-      </main>
+      <div id='container-body'>
+        <NavBar />
+        <Routes>
+          <Route path='/characters' element={<CharactersPage />} />
+          <Route path='/personaje/:id' element={<CharacterDetail />} /> 
+          <Route path='/locations' element={<LocationsPage />} />
+          <Route path='/episodes' element={<EpisodesPage />} />
+        </Routes>
       </div>
-      <Footer />
-    </>
+    </Router>
   )
 }
 

@@ -1,0 +1,41 @@
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0;
+    padding: 10px;
+    flex-wrap: wrap;
+    /* Para que se adapte a móviles */
+}
+
+.page-button {
+    background-color: #ffd90f;
+    /* Amarillo Simpsons */
+    color: #000;
+    border: 1px solid #000;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-button:hover:not(:disabled) {
+    background-color: red;
+    /* Amarillo más intenso */
+    transform: scale(1.15);
+}
+
+.page-button.active {
+    background-color: red;
+    color: white;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.page-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
