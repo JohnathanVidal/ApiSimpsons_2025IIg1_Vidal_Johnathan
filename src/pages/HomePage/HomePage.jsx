@@ -26,7 +26,7 @@ const HomePage = () => {
             </Typography>
             <Typography
                 variant="h5"
-                sx={{ maxWidth: 800, margin: 'auto' }}
+                sx={{ maxWidth: 800, margin: 'auto', textShadow: '2px 2px 0px #000000cc', color: '#e1e1e1ff' }}
             >
                 Explora el universo de Los Simpson: personajes, lugares y episodios, todo consumido desde una API pública en React.
             </Typography>

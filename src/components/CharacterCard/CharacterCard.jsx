@@ -15,22 +15,17 @@ const CharacterCard = ({ data }) => {
     const imageUrl = data.id
         ? `https://cdn.thesimpsonsapi.com/500/character/${data.id}.webp`
         : noImage;
-
     // 1. Lógica de Navegación
     const navigate = useNavigate();
-
     // Crea un ID seguro para la URL. Utilizamos el ID si existe, si no, el nombre normalizado.
     const characterId = data.id || encodeURIComponent(data.name.toLowerCase().replace(/\s/g, '-'));
-
     const handleCardClick = () => {
         // Redirigir a la vista de detalle
         // Asegúrate de que la ruta aquí coincida con la ruta definida en tu App.jsx (e.g., /personajes/:id)
         navigate(`/personaje/${characterId}`);
     };
-
     // 2. Estilos y Sombra de Hover Requerida
     const hoverShadow = '0px 5px 8px rgba(182, 189, 45, 0.82)';
-
     return (
         <Card
             onClick={handleCardClick}
@@ -43,7 +38,6 @@ const CharacterCard = ({ data }) => {
                 boxShadow: '0px 5px 8px rgba(0, 0, 0, 0.3)',
                 transition: 'all 0.18s ease-in-out',
                 overflow: 'visible',
-
                 // Estilo de la Card en hover: Levantamiento y Sombra
                 '&:hover': {
                     transform: 'translateY(-8px)',
@@ -53,7 +47,6 @@ const CharacterCard = ({ data }) => {
             }}
         >
             <CardActionArea>
-
                 {/* Contenedor para la imagen de perfil */}
                 <Box sx={{
                     padding: 2,

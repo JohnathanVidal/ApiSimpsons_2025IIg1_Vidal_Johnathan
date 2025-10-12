@@ -1,9 +1,9 @@
-// App.jsx (ACTUALIZADO)
-
 import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+
 import HomePage from './pages/HomePage/HomePage';
 import CharactersPage from './pages/Characters/CharactersPage';
 import CharacterDetail from './pages/Characters/CharacterDetail';
@@ -22,13 +22,13 @@ function App() {
           <NavBar />
           <Routes>
             <Route path='/' element={<HomePage />} />
-
             <Route path='/characters' element={<CharactersPage />} />
             <Route path='/personaje/:id' element={<CharacterDetail />} />
             <Route path='/locations' element={<LocationsPage />} />
             <Route path='/episodes' element={<EpisodesPage />} />
           </Routes>
         </div>
+        <Footer />
       </Router>
     </>
   )

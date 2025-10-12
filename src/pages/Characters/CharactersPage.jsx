@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
-import CircularProgress from '@mui/material/CircularProgress';
-import PaginationControls from '../../components/PaginationControls/PaginationControls'; // Necesitas este componente
+import { CircularProgress, Typography } from '@mui/material';
+import PaginationControls from '../../components/PaginationControls/PaginationControls';
 import './CharactersPage.css';
-// Si usas Navigate para algo global, pero es más común usar Link o useNavigate
-// import { useNavigate } from 'react-router-dom'; 
 
-const CHARACTERS_PER_PAGE = 10; // 10 personajes por página, según el requisito 
+const personajes_por_pagina = 10;
 
 const CharactersPage = () => {
-    const [allCharacters, setAllCharacters] = useState([]); // Todos los datos de la API
-    const [currentPage, setCurrentPage] = useState(1);       // Página actual
-    const [isLoading, setIsLoading] = useState(true);        // Control de carga [cite: 68]
-    // const navigate = useNavigate(); // Inicializar navigate
+    const [allCharacters, setAllCharacters] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        // Usa la corrección de lógica para la API
         fetch('https://thesimpsonsapi.com/api/characters')
             .then(response => response.json())
             .then(data => {
@@ -27,27 +23,23 @@ const CharactersPage = () => {
             .catch(error => {
                 console.error('Error fetching data:', error);
                 setIsLoading(false);
-                // Aquí se puede implementar el control de errores (opcional) [cite: 67]
             });
     }, []);
 
-    // 1. Lógica de Paginación
-    const totalPages = Math.ceil(allCharacters.length / CHARACTERS_PER_PAGE);
-    
-    const startIndex = (currentPage - 1) * CHARACTERS_PER_PAGE;
-    const endIndex = startIndex + CHARACTERS_PER_PAGE;
+    const totalPages = Math.ceil(allCharacters.length / personajes_por_pagina);
+    const startIndex = (currentPage - 1) * personajes_por_pagina;
+    const endIndex = startIndex + personajes_por_pagina;
     const currentCharacters = allCharacters.slice(startIndex, endIndex);
 
     const handlePageChange = (pageNumber) => {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
             setCurrentPage(pageNumber);
-            window.scrollTo(0, 0); 
+            window.scrollTo(0, 0);
         }
     };
-    
+
     const renderCharacters = () => {
         if (isLoading) {
-            // Loader o animación de carga [cite: 68]
             return (
                 <div className="loader-center">
                     <CircularProgress color="warning" size={60} />
@@ -62,18 +54,14 @@ const CharactersPage = () => {
 
         return (
             <>
-                {/* Contenedor de las tarjetas */}
-                <div id='charactersPage'> 
+                <div id='charactersPage'>
                     {currentCharacters.map((character, index) => (
-                        // Usamos index como fallback key si el id no existe
-                        <CharacterCard 
-                            key={character.id || character.name || index} 
-                            data={character} 
+                        <CharacterCard
+                            key={character.id || character.name || index}
+                            data={character}
                         />
                     ))}
                 </div>
-
-                {/* Controles de Paginación  */}
                 <PaginationControls
                     currentPage={currentPage}
                     totalPages={totalPages}
@@ -85,6 +73,19 @@ const CharactersPage = () => {
 
     return (
         <div id='characters-container'>
+            <Typography
+                variant="h3"
+                component="h1"
+                sx={{
+                    mb: 4,
+                    textAlign: 'center',
+                    fontFamily: 'Bangers, cursive',
+                    color: '#FFD90F',
+                    textShadow: '4px 4px 0px #000',
+                }}
+            >
+                Personajes de Los Simpson
+            </Typography>
             {renderCharacters()}
         </div>
     );

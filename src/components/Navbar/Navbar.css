@@ -3,13 +3,28 @@
 nav {
     background-color: #FFD90F;
     width: 400px;
-    min-height: 230vh;
+
+    /* 🛑 CLAVE: Ocupa el 100% de la altura del contenedor Flex padre (#container-body) */
+    height: 100%;
+
+    /* 🛑 CLAVE: Convierte el nav en un contenedor Flex vertical */
     display: flex;
     flex-direction: column;
+
     align-items: center;
     padding-top: 50px;
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+}
+
+/* Contenedor de las Rutas (para que ocupe el espacio restante horizontalmente) */
+#container-body> :last-child {
+    flex-grow: 1;
+    /* Ocupa el espacio restante horizontal */
+    overflow-y: auto;
+    /* Permite el scroll solo en el contenido */
+    padding: 20px;
+    /* Un poco de padding para el contenido */
 }
 
 /* Lista */
@@ -18,6 +33,10 @@ nav ul {
     width: 270px;
     padding: 0;
     margin: 0;
+
+    /* 🛑 CLAVE: Permite que la lista crezca y ocupe todo el espacio vertical sobrante. */
+    /* Esto es lo que fuerza al fondo amarillo a estirarse hasta el borde inferior. */
+    flex-grow: 1;
 }
 
 /* Elemento de lista */
@@ -54,4 +73,43 @@ nav ul li a:hover {
     /* Efecto "presionado" */
     transform: translate(5px, 5px);
     box-shadow: 0px 0px 0px #E53935;
+}
+
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        /* Ocupa todo el ancho de la pantalla */
+        height: auto;
+        /* Ya no forzamos la altura; el contenido define la altura */
+        flex-direction: row;
+        /* Los enlaces ahora se muestran en fila */
+        justify-content: space-around;
+        /* Distribuye los botones horizontalmente */
+        padding: 10px 0;
+        /* Menos padding superior */
+    }
+
+    nav ul {
+        flex-grow: 0;
+        /* No crece verticalmente */
+        display: flex;
+        /* La lista se convierte en flex */
+        width: 100%;
+        justify-content: space-around;
+        /* Distribuye los ítems */
+    }
+
+    nav ul li {
+        margin: 0;
+        /* Quita márgenes verticales */
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+        /* Reduce el tamaño de la fuente para que quepa */
+        padding: 5px 10px;
+        box-shadow: 3px 3px 0px #E53935;
+        /* Sombra más pequeña */
+        width: auto;
+    }
 }

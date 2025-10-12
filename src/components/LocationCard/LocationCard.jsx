@@ -5,27 +5,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import { Box } from '@mui/material';
-
-// Importa la imagen de fallback (asumiendo la ruta correcta)
 import noImage from '../../assets/noImage.jpg';
 
 const LocationCard = ({ data }) => {
-
-    // CONSTRUCCIÓN DEL URL DE LA IMAGEN (FIX)
-    // Nueva estructura: https://cdn.thesimpsonsapi.com/1280/location/{id}.webp
-    // Usamos el ID para construir la URL
     const imageUrl = data.id
         ? `https://cdn.thesimpsonsapi.com/1280/location/${data.id}.webp`
-        : noImage; // Fallback local
+        : noImage;
 
-    // Estilos de sombra para hover
-    const hoverShadow = '0px 5px 8px rgba(0, 112, 192, 0.82)'; // Color azul/cielo
+    const hoverShadow = '0px 5px 8px rgba(0, 112, 192, 0.82)';
 
-    // Función de manejo de clic (por ahora, solo un log)
     const handleCardClick = () => {
         console.log(`Clic en el lugar: ${data.name} (ID: ${data.id})`);
-        // Si tienes una ruta de detalle de lugar, la navegación iría aquí:
-        // navigate(`/lugar/${data.id}`); 
     };
 
     return (
@@ -38,20 +28,17 @@ const LocationCard = ({ data }) => {
                 border: '1px solid #ccc',
                 borderRadius: '15px',
                 boxShadow: '0px 5px 8px rgba(0, 0, 0, 0.3)',
-                transition: 'all 0.4s ease-in-out',
+                transition: 'all 0.18s ease-in-out',
                 overflow: 'visible',
-
-                // Estilo de la Card en hover: Levantamiento y Sombra
                 '&:hover': {
                     transform: 'translateY(-8px)',
-                    backgroundColor: 'rgba(189, 236, 255, 0.46)', // Fondo azul claro suave
+                    backgroundColor: 'rgba(189, 236, 255, 0.46)',
                     boxShadow: hoverShadow,
                 }
             }}
         >
             <CardActionArea>
-
-                {/* Contenedor de la Imagen */}
+                {/* imagen */}
                 <Box sx={{
                     padding: 2,
                     height: 250,
@@ -67,12 +54,10 @@ const LocationCard = ({ data }) => {
                         sx={{
                             width: '100%',
                             maxHeight: 200,
-                            objectFit: 'cover', // Usamos 'cover' para que ocupe todo el espacio si es necesario
+                            objectFit: 'cover',
                             borderRadius: '15px',
                             border: '1px solid #ccc',
-                            transition: 'all 0.2s ease-in-out',
-
-                            // Estilo de la Imagen en hover
+                            transition: 'all 0.18s ease-in-out',
                             '&:hover': {
                                 transform: 'scale(1.05)',
                                 boxShadow: hoverShadow,
@@ -81,7 +66,6 @@ const LocationCard = ({ data }) => {
                         }}
                     />
                 </Box>
-
                 {/* Contenido de la Tarjeta */}
                 <CardContent>
                     <Typography
@@ -89,8 +73,8 @@ const LocationCard = ({ data }) => {
                         variant="h5"
                         component="div"
                         sx={{
-                            color: '#0070c0', // Azul
-                            textShadow: '1px 1px 0px #FFD90F', // Amarillo
+                            color: '#ffd80f',
+                            textShadow: '2px 1px 0px #ff0f0fff',
                             fontFamily: 'Bangers, cursive',
                             textAlign: 'center'
                         }}
