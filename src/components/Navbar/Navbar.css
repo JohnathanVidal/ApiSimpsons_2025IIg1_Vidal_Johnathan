@@ -3,66 +3,48 @@
 nav {
     background-color: #FFD90F;
     width: 400px;
-
-    /* 🛑 CLAVE: Ocupa el 100% de la altura del contenedor Flex padre (#container-body) */
     height: 100%;
-
-    /* 🛑 CLAVE: Convierte el nav en un contenedor Flex vertical */
     display: flex;
     flex-direction: column;
-
     align-items: center;
     padding-top: 50px;
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    position: static;
 }
 
-/* Contenedor de las Rutas (para que ocupe el espacio restante horizontalmente) */
 #container-body> :last-child {
     flex-grow: 1;
-    /* Ocupa el espacio restante horizontal */
     overflow-y: auto;
-    /* Permite el scroll solo en el contenido */
     padding: 20px;
-    /* Un poco de padding para el contenido */
 }
 
-/* Lista */
 nav ul {
     list-style-type: none;
     width: 270px;
     padding: 0;
     margin: 0;
-
-    /* 🛑 CLAVE: Permite que la lista crezca y ocupe todo el espacio vertical sobrante. */
-    /* Esto es lo que fuerza al fondo amarillo a estirarse hasta el borde inferior. */
     flex-grow: 1;
 }
 
-/* Elemento de lista */
 nav ul li {
     margin: 30px 0;
     text-align: center;
 }
 
-/* Enlace (que ahora actúa como botón) */
 nav ul li a {
     font-family: 'Bangers', cursive;
     font-size: 2.2rem;
     text-decoration: none;
     color: black;
-
-    /* Estilo de Botón */
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid black;
     border-radius: 15px;
     background-color: white;
     box-shadow: 5px 5px 0px #E53935;
-    /* Sombra roja de Los Simpson */
     transition: all 0.18s ease-in-out;
     width: 70%;
-    /* Evita que el texto se mueva con el transform */
     transform-style: preserve-3d;
 }
 
@@ -70,46 +52,40 @@ nav ul li a {
 nav ul li a:hover {
     color: #0070c0;
     background-color: #F8F8F8;
-    /* Efecto "presionado" */
     transform: translate(5px, 5px);
     box-shadow: 0px 0px 0px #E53935;
 }
 
 @media (max-width: 768px) {
     nav {
+        position: fixed;
+        z-index: 1000;
+        top: 190px;
+        left: 0;
         width: 100%;
-        /* Ocupa todo el ancho de la pantalla */
         height: auto;
-        /* Ya no forzamos la altura; el contenido define la altura */
         flex-direction: row;
-        /* Los enlaces ahora se muestran en fila */
-        justify-content: space-around;
-        /* Distribuye los botones horizontalmente */
+        justify-content: space-evenly;
         padding: 10px 0;
-        /* Menos padding superior */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        margin-top: 0;
     }
 
     nav ul {
         flex-grow: 0;
-        /* No crece verticalmente */
         display: flex;
-        /* La lista se convierte en flex */
         width: 100%;
         justify-content: space-around;
-        /* Distribuye los ítems */
     }
 
     nav ul li {
         margin: 0;
-        /* Quita márgenes verticales */
     }
 
     nav ul li a {
         font-size: 1.2rem;
-        /* Reduce el tamaño de la fuente para que quepa */
         padding: 5px 10px;
         box-shadow: 3px 3px 0px #E53935;
-        /* Sombra más pequeña */
         width: auto;
     }
 }

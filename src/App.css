@@ -15,12 +15,13 @@ body,
   height: 100%;
   display: flex;
   flex-direction: row;
+  overflow-y: auto;
 }
 
 @media (max-width: 768px) {
   #container-body {
     flex-direction: column;
-    /* margin-top: 80px; */
+    margin-top: 250px;
     margin-bottom: 220px;
     min-height: auto;
     height: auto;
