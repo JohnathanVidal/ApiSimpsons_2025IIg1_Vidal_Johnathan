@@ -28,7 +28,7 @@ const EpisodesPage = () => {
                 const episodesArray = Array.isArray(data) ? data : data.results || [];
                 console.log(`Episodios cargados: ${episodesArray.length} ítems.`);
                 setAllEpisodes(episodesArray);
-                setIsLoading(false);s
+                setIsLoading(false);
             })
             .catch(err => {
                 console.error('Error fetching episodes:', err);
