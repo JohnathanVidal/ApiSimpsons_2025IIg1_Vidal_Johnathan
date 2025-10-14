@@ -1,15 +1,13 @@
 import React from 'react';
-import './PaginationControls.css'; // Estilos para los controles
+import './PaginationControls.css'; 
 
 const PaginationControls = ({ currentPage, totalPages, onPageChange }) => {
-
-    // Si solo hay una página, no mostramos los controles
+    // No mostrar controles si solo hay una página
     if (totalPages <= 1) {
         return null;
     }
-
     // Array para generar los botones de página
-    const pageNumbers = [...Array(totalPages).keys()].map(i => i + 1);
+    const NumeroPagina = [...Array(totalPages).keys()].map(i => i + 1);
 
     return (
         <div className="pagination-controls">
@@ -17,17 +15,17 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange }) => {
             <button
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="page-button"
+                className="boton_pagina"
             >
                 &laquo; Anterior
             </button>
 
             {/* Números de Página (ejemplo simplificado) */}
-            {pageNumbers.map(number => (
+            {NumeroPagina.map(number => (
                 <button
                     key={number}
                     onClick={() => onPageChange(number)}
-                    className={`page-button ${number === currentPage ? 'active' : ''}`}
+                    className={`boton_pagina ${number === currentPage ? 'active' : ''}`}
                 >
                     {number}
                 </button>
@@ -37,7 +35,7 @@ const PaginationControls = ({ currentPage, totalPages, onPageChange }) => {
             <button
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="page-button"
+                className="boton_pagina"
             >
                 Siguiente &raquo;
             </button>

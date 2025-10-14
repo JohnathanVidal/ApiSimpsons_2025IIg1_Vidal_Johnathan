@@ -48,7 +48,6 @@ nav ul li a {
     transform-style: preserve-3d;
 }
 
-/* Efecto Hover (al pasar el ratón) */
 nav ul li a:hover {
     color: #0070c0;
     background-color: #F8F8F8;

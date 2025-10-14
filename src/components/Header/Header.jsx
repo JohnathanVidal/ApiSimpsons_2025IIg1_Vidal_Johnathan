@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const navigate = useNavigate();
-    const handleLogoClick = () => {
+    const clicklogo = () => {
         navigate('/');
     };
     return (
@@ -15,7 +15,7 @@ const Header = () => {
                 src={Logo}
                 alt="Logo de la API de los Simpsons"
                 id='logo'
-                onClick={handleLogoClick} // Llama a la función al hacer clic
+                onClick={clicklogo} // Llamamos la función al hacer clic en el logo
                 style={{ cursor: 'pointer' }} // Agrega cursor: pointer para indicar que es clickeable
             />
             <img src={Familia} alt="Imagen de la familia Simpson" id='familia' />

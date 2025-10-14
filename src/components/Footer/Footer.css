@@ -12,7 +12,7 @@
     z-index: 1000;
 }
 
-.social-link {
+.redSocial {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@
     opacity: 0.8;
 }
 
-.social-link:hover {
+.redSocial:hover {
     transform: scale(1.5);
     opacity: 1;
 }

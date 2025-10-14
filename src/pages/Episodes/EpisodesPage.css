@@ -1,0 +1,101 @@
+#episodesPage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.loader-center,
+.error-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    gap: 15px;
+    font-size: 1.2em;
+    color: #000;
+}
+
+#episodes-container {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#episodes-container h2 {
+    color: #e53935;
+    text-shadow: 3px 3px 0 #fdd835;
+    font-family: 'Bangers', cursive;
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+.episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.filters-container {
+    background: linear-gradient(135deg, rgba(255, 217, 15, 0.1), rgba(229, 57, 53, 0.1));
+    border: 2px solid rgba(255, 217, 15, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.filter-chip {
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .episodes-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    #episodes-container h2 {
+        font-size: 2em;
+    }
+
+    .filters-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .active-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

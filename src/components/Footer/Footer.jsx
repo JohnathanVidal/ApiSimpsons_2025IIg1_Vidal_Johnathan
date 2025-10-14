@@ -35,11 +35,11 @@ const Footer = () => {
                     ¡Síguenos en las Redes!
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2, mt: 1 }}>
-                    <a href="#" className="social-link"><FacebookIcon sx={{ color: '#1877F2' }} /></a>
-                    <a href="#" className="social-link"><InstagramIcon sx={{ color: '#E4405F' }} /></a>
-                    <a href="#" className="social-link"><TwitterIcon sx={{ color: '#1DA1F2' }} /></a>
-                    <a href="https://github.com/JohnathanVidal" className="social-link"><GitHubIcon sx={{ color: 'black' }} /></a>
-                    <a href="#" className="social-link"><LinkedInIcon sx={{ color: '#0A66C2' }} /></a>
+                    <a href="#" className="redSocial"><FacebookIcon sx={{ color: '#1877F2' }} /></a>
+                    <a href="#" className="redSocial"><InstagramIcon sx={{ color: '#E4405F' }} /></a>
+                    <a href="#" className="redSocial"><TwitterIcon sx={{ color: '#1DA1F2' }} /></a>
+                    <a href="https://github.com/JohnathanVidal" className="redSocial"><GitHubIcon sx={{ color: 'black' }} /></a>
+                    <a href="#" className="redSocial"><LinkedInIcon sx={{ color: '#0A66C2' }} /></a>
                 </Box>
             </Box>
 

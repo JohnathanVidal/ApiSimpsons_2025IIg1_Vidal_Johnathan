@@ -1,44 +1,34 @@
-/* Contenedor general de la lista de personajes (las cards) */
 #charactersPage {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     justify-content: center;
-    /* Quitamos 'align-items: center' y 'height: 100vh' para que el contenido fluya */
     min-height: 400px;
-    /* Altura mínima para evitar colapso */
 }
 
-/* Estilo para centrar el cargador y el mensaje de error */
-.loader-center,
-.error-message {
+.cargando,
+.mensaje_error {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 50vh;
-    /* Para que ocupe espacio visible */
     gap: 15px;
     font-size: 1.2em;
     color: #000;
 }
 
-/* Contenedor principal de la página CharactersPage */
 #characters-container {
     padding-top: 20px;
     text-align: center;
 }
 
 #characters-container h2 {
-    /* Estilo Simpsons para el título */
     color: #e53935;
-    /* Rojo Logo */
     text-shadow: 3px 3px 0 #fdd835;
-    /* Sombra Amarilla */
     font-family: 'Bangers', cursive;
-    /* Usa la fuente que definas */
     margin-bottom: 20px;
     font-size: 3em;
 }

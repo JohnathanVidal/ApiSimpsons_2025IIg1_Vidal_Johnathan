@@ -41,15 +41,15 @@ const CharactersPage = () => {
     const renderCharacters = () => {
         if (isLoading) {
             return (
-                <div className="loader-center">
+                <div className="cargando">
                     <CircularProgress color="warning" size={60} />
-                    <p>Cargando Springfield...</p>
+                    <p>Cargando...</p>
                 </div>
             );
         }
 
         if (allCharacters.length === 0 && !isLoading) {
-            return <p className="error-message">No se pudieron cargar los personajes. Inténtalo de nuevo más tarde.</p>;
+            return <p className="mensaje_error">No se pudieron cargar los personajes. Inténtalo más tarde.</p>;
         }
 
         return (

@@ -20,29 +20,25 @@
     z-index: 1000;
 }
 
-/* Estilo de las imágenes */
 #logo {
     height: 65px;
-    transition: transform 0.3s ease;
+    transition: transform 0.18s ease;
 }
 
 #familia {
     height: 180px;
-    transition: transform 0.3s ease;
+    transition: transform 0.18s ease;
 }
 
-/* Efecto al pasar el mouse */
 #logo:hover,
 #familia:hover {
     transform: scale(1.18);
 }
 
-/* Ajuste para que el contenido no quede oculto detrás del header */
 body {
     padding-top: 110px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;

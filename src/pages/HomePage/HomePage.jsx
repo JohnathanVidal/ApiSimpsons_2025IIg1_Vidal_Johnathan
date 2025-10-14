@@ -13,13 +13,11 @@ const HomePage = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: 'center', 
-
+                alignItems: 'center',
                 backgroundImage: `url(${NubesFondo})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundAttachment: 'fixed',
-
                 position: 'relative',
                 '&::before': {
                     content: '""',
@@ -34,7 +32,6 @@ const HomePage = () => {
                 },
             }}
         >
-            {/* El Box de contenido (zIndex: 2) es lo que se centra dentro del Box padre */}
             <Box sx={{
                 position: 'relative',
                 zIndex: 2,

@@ -9,7 +9,7 @@ import {
     CardMedia
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import noImage from '../../assets/noImage.jpg'; // Imagen por defecto si falta la imagen
+import noImage from '../../assets/noImage.jpg';
 
 const CharacterDetail = () => {
     const { id: characterIdentifier } = useParams();
@@ -23,9 +23,9 @@ const CharacterDetail = () => {
     const getStatus = (name) => {
         const deadCharacters = ["Maude Flanders", "Bleeding Gums Murphy", "Mona Simpson"];
         if (deadCharacters.includes(name)) {
-            return { text: "Fallecido", color: "#E53935" }; // Rojo vibrante
+            return { text: "Fallecido", color: "#E53935" };
         }
-        return { text: "Vivo", color: "#4CAF50" }; // Verde vibrante
+        return { text: "Vivo", color: "#4CAF50" };
     };
 
 
@@ -33,13 +33,10 @@ const CharacterDetail = () => {
         setIsLoading(true);
         setError(false);
 
-        // Cargamos todos los personajes y filtramos
         fetch('https://thesimpsonsapi.com/api/characters')
             .then(response => response.json())
             .then(data => {
                 const charactersArray = Array.isArray(data) ? data : data.results || [];
-
-                // Buscar por ID o por nombre normalizado (como se hace en tu código original)
                 const foundCharacter = charactersArray.find(char =>
                     (char.id && char.id.toString() === characterIdentifier) ||
                     (char.name && encodeURIComponent(char.name.toLowerCase().replace(/\s/g, '-')) === characterIdentifier)
@@ -58,10 +55,7 @@ const CharacterDetail = () => {
                 setIsLoading(false);
             });
     }, [characterIdentifier]);
-
-
-    // --- Renderizado Condicional de Estados ---
-
+    // --- Manejo de Estados ---
     if (isLoading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 5, mt: 5 }}>
@@ -90,18 +84,17 @@ const CharacterDetail = () => {
 
     const status = getStatus(character.name);
 
-    // 1. Frase Célebre: Accede al array 'phrases' y toma el primer elemento
-    const celebrePhrase = character.phrases && character.phrases.length > 0
-        ? character.phrases[0]
-        : "Frase célebre no disponible. ¡Mmm... Rosquillas!";
+    // Función para obtener una frase célebre al azar o una predeterminada
+    const getDefaultPhrase = () => "Frase célebre no disponible.";
 
-    // 2. FIX IMAGEN: Construye el URL completo de la CDN usando el ID del personaje
+    const celebrePhrase =
+        character.phrases && character.phrases.length > 0
+            ? character.phrases[Math.floor(Math.random() * character.phrases.length)]
+            : getDefaultPhrase();
+
     const detailImageUrl = character.id
         ? `https://cdn.thesimpsonsapi.com/500/character/${character.id}.webp`
         : noImage;
-
-
-    // --- Vista Detallada ---
 
     return (
         <Box
@@ -151,7 +144,7 @@ const CharacterDetail = () => {
                     boxShadow: '0 5px 10px rgba(0, 0, 0, 0.5)',
                 }}
             >
-                {/* 1. Área de la Imagen con Estilo de Perfil */}
+                {/* Área de la Imagen */}
                 <Box
                     sx={{
                         width: { xs: '100%', md: 350 },
@@ -167,7 +160,6 @@ const CharacterDetail = () => {
                 >
                     <CardMedia
                         component="img"
-                        // 🛑 USO DE LA NUEVA detailImageUrl 🛑
                         image={detailImageUrl}
                         alt={`Retrato de ${character.name}`}
                         className="detail-image"
@@ -190,7 +182,7 @@ const CharacterDetail = () => {
                     />
                 </Box>
 
-                {/* 2. Área de la Información */}
+                {/* Área de Información */}
                 <Box sx={{ flexGrow: 1, pt: { xs: 0, md: 2 } }}>
 
                     {/* Nombre Principal */}
@@ -202,7 +194,7 @@ const CharacterDetail = () => {
                             fontFamily: 'Bangers, cursive',
                             color: '#FFCC00',
                             textShadow: '3px 3px 0px #000000ff',
-                            fontSize: { xs: '2.5rem', md: '3.5rem' }    
+                            fontSize: { xs: '2.5rem', md: '3.5rem' }
                         }}
                     >
                         {character.name}
@@ -213,7 +205,7 @@ const CharacterDetail = () => {
                         Ocupación: {character.occupation || "Desconocida"}
                     </Typography>
 
-                    {/* Estado (Vivo/Muerto) - Resaltado */}
+                    {/* Estado: (Vivo/Muerto) - Resaltado */}
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
                         <Typography variant="h5" sx={{ mr: 1, fontWeight: 'bold' }}>
                             Estado:

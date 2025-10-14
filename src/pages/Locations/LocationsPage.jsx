@@ -31,8 +31,6 @@ const LocationsPage = () => {
             });
     }, []);
 
-    // --- Renderizado Condicional ---
-
     if (isLoading) {
         return (
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 5, mt: 5 }}>
@@ -56,7 +54,7 @@ const LocationsPage = () => {
         return (
             <Box sx={{ textAlign: 'center', p: 5, mt: 5 }}>
                 <Typography variant="h5" color="white">
-                    No se encontraron lugares. ¡Springfield se encuentra desierto!
+                    No se encontraron lugares.
                 </Typography>
             </Box>
         );

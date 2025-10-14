@@ -12,15 +12,15 @@ const LocationCard = ({ data }) => {
         ? `https://cdn.thesimpsonsapi.com/1280/location/${data.id}.webp`
         : noImage;
 
-    const hoverShadow = '0px 5px 8px rgba(0, 112, 192, 0.82)';
+    const Sombra = '0px 5px 8px rgba(0, 112, 192, 0.82)';
 
-    const handleCardClick = () => {
+    const Click_en_Card = () => {
         console.log(`Clic en el lugar: ${data.name} (ID: ${data.id})`);
     };
 
     return (
         <Card
-            onClick={handleCardClick}
+            onClick={Click_en_Card}
             sx={{
                 width: 345,
                 cursor: 'pointer',
@@ -33,7 +33,7 @@ const LocationCard = ({ data }) => {
                 '&:hover': {
                     transform: 'translateY(-8px)',
                     backgroundColor: 'rgba(189, 236, 255, 0.46)',
-                    boxShadow: hoverShadow,
+                    boxShadow: Sombra,
                 }
             }}
         >
@@ -60,7 +60,7 @@ const LocationCard = ({ data }) => {
                             transition: 'all 0.18s ease-in-out',
                             '&:hover': {
                                 transform: 'scale(1.05)',
-                                boxShadow: hoverShadow,
+                                boxShadow: Sombra,
                                 zIndex: 10,
                             }
                         }}
