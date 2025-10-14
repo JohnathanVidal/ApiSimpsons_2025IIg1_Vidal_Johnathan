@@ -10,7 +10,7 @@ import CharacterDetail from './pages/Characters/CharacterDetail';
 import LocationsPage from './pages/Locations/LocationsPage';
 import EpisodesPage from './pages/Episodes/EpisodesPage';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
 
